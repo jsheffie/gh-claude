@@ -55,6 +55,40 @@ Then inside Claude Code:
 /reload-plugins
 ```
 
+### Registering the marketplace (one-time)
+
+Claude Code requires `gh-claude` to be listed as a known marketplace before it will load skills and commands. Run one of the following once after installation, then `/reload-plugins`.
+
+**Option A — via `settings.json`** (recommended):
+```bash
+python3 - <<'EOF'
+import json
+path = "/Users/jds/.claude/settings.json"
+with open(path) as f: d = json.load(f)
+d.setdefault("extraKnownMarketplaces", {})["gh-claude"] = {
+    "source": {"source": "github", "repo": "jsheffie/gh-claude"}
+}
+with open(path, "w") as f: json.dump(d, f, indent=2); f.write("\n")
+print("Done")
+EOF
+```
+
+**Option B — via `known_marketplaces.json`**:
+```bash
+python3 - <<'EOF'
+import json
+path = "/Users/jds/.claude/plugins/known_marketplaces.json"
+with open(path) as f: d = json.load(f)
+d["gh-claude"] = {
+    "source": {"source": "github", "repo": "jsheffie/gh-claude"},
+    "installLocation": "/Users/jds/.claude/plugins/marketplaces/gh-claude",
+    "lastUpdated": "2026-04-30T20:00:00.000Z"
+}
+with open(path, "w") as f: json.dump(d, f, indent=2); f.write("\n")
+print("Done")
+EOF
+```
+
 ### Local development
 
 ```bash
