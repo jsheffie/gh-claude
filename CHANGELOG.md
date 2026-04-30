@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.3 — 2026-04-30
+
+`gh-prs` scoped to current repo only (no cross-repo fetch), all five
+categories now always evaluated and shown when non-empty, 🧠 emoji on
+mindmap link line, section order fixed (Ready → CI failing → Drafts →
+CI passing → Pending).
+
 ## v1.1.2 — 2026-04-30
 
 `gh-prs` command now produces a consistent fixed format (Ready to merge /

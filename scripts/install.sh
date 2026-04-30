@@ -2,7 +2,7 @@
 set -euo pipefail
 
 PLUGIN_NAME="gh-claude"
-PLUGIN_VERSION="1.1.2"
+PLUGIN_VERSION="1.1.3"
 MARKETPLACE_KEY="gh-claude"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
