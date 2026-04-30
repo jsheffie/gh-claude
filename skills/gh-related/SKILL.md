@@ -130,10 +130,13 @@ Format the final response exactly as shown below. Use actual values from your fi
 - State values: open, closed, or merged (PRs only)
 - List directly referenced items in the order they appear in the body/comments
 - List semantically related items with the strongest signal first (label+milestone match beats label-only beats keyword-only)
+- After printing the text output, proceed to Step 5 — do not stop the response here
 
-## Step 5 — Optional Mindmap Visualization
+## Step 5 — Mindmap Visualization (REQUIRED if tool is available)
 
-If the `mcp__fatbrainmap__render_mindmap` tool is available in your tool list, also call it with the findings as a JSON graph. This gives the user a clickable URL to an interactive mindmap. If the tool is not available, skip this step silently.
+**This step is mandatory whenever the `mcp__fatbrainmap__render_mindmap` tool appears in your available tools.** Do not skip it for "brevity" or because the text output is already informative — the user explicitly wants the visualization. Only skip if the tool is genuinely not in your tool list.
+
+You MUST call `mcp__fatbrainmap__render_mindmap` with the findings as a JSON graph and append the returned URL to your response. The text output and the mindmap are complementary — both ship together.
 
 **Build the graph:**
 
@@ -173,10 +176,10 @@ Rules for building the graph:
 
 **Then call the tool:**
 
-After printing the text output, invoke `mcp__fatbrainmap__render_mindmap` with the graph object. The tool returns a clickable markdown link. Append it to your response on a new line:
+After printing the text output, invoke `mcp__fatbrainmap__render_mindmap` with the graph object as the `graph` argument. The tool returns a markdown string like `Mindmap ready: [Open visualization](http://localhost:8765/m/abc12345)`. Append exactly that string to your response on a new line, prefixed with the brain emoji:
 
 ```
-🧠 [Open mindmap](http://localhost:8765/m/abc12345)
+🧠 Mindmap ready: [Open visualization](http://localhost:8765/m/abc12345)
 ```
 
-If the tool call fails for any reason, do not retry — just continue with the text output already printed.
+If the tool call fails for any reason, do not retry — just continue with the text output already printed and mention the failure briefly.

@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.1 — 2026-04-30
+
+Move the mindmap rendering instructions into `commands/gh-related.md` itself
+so the slash-command invocation reliably triggers the MCP tool. The previous
+release only had the instructions inside the SKILL body, which Claude could
+skip when running the command as a one-shot.
+
 ## v1.1.0 — 2026-04-30
 
 `gh-related` now optionally renders an interactive mindmap. If the
