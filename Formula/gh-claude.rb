@@ -9,7 +9,7 @@ class GhClaude < Formula
   depends_on "gh"
 
   def install
-    libexec.install Dir["*"]
+    libexec.install Dir["*", ".*"].reject { |f| f == "." || f == ".." }
     (bin/"gh-claude-install").write <<~SH
       #!/bin/bash
       exec bash "#{libexec}/scripts/install.sh" "$@"
