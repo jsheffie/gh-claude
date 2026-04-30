@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.2 — 2026-04-30
+
+`gh-prs` command now produces a consistent fixed format (Ready to merge /
+CI passing / CI failing / Drafts / Pending sections, one line per PR) and
+renders a mindmap via `mcp__fatbrainmap__render_mindmap` when available,
+with the root node "Your open PRs" connected to every PR.
+
 ## v1.1.1 — 2026-04-30
 
 Move the mindmap rendering instructions into `commands/gh-related.md` itself
