@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.1.0 — 2026-04-30
+
+`gh-related` now optionally renders an interactive mindmap. If the
+[`fatbrainmap`](https://github.com/jsheffie/gh-claude-fatbrainmap-mcp) MCP server
+is connected, the skill builds a JSON graph and calls
+`mcp__fatbrainmap__render_mindmap` with it, returning a clickable URL to a
+React Flow visualization (elk hierarchical or d3-force organic layout, bezier
+edges, drag, GitHub links). When the MCP server is not present, behavior is
+unchanged.
+
 ## v1.0.0 — 2026-04-30
 
 Initial release.

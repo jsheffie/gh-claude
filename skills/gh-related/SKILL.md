@@ -130,3 +130,53 @@ Format the final response exactly as shown below. Use actual values from your fi
 - State values: open, closed, or merged (PRs only)
 - List directly referenced items in the order they appear in the body/comments
 - List semantically related items with the strongest signal first (label+milestone match beats label-only beats keyword-only)
+
+## Step 5 — Optional Mindmap Visualization
+
+If the `mcp__fatbrainmap__render_mindmap` tool is available in your tool list, also call it with the findings as a JSON graph. This gives the user a clickable URL to an interactive mindmap. If the tool is not available, skip this step silently.
+
+**Build the graph:**
+
+```json
+{
+  "version": 1,
+  "repo": "owner/name",
+  "root": N,
+  "nodes": [
+    {
+      "id": <number>,
+      "kind": "issue" | "pr",
+      "state": "open" | "closed" | "merged",
+      "title": "<title>",
+      "url": "https://github.com/owner/name/issues/<n>"  // or /pull/<n> for PRs
+      "labels": ["<label>", ...],
+      "milestone": "<name>" | null
+    }
+  ],
+  "edges": [
+    {
+      "source": N,
+      "target": <related number>,
+      "kind": "direct" | "semantic",
+      "reason": "<same reason string used in the text output>"
+    }
+  ]
+}
+```
+
+Rules for building the graph:
+- Always include the target itself as a node (id = N), with `isRoot` semantics handled by the server.
+- Include every node that appears in the text output (Directly Referenced + Semantically Related). Don't include items you couldn't fetch.
+- One edge per related item, sourced from the target. `kind: "direct"` for items in "Directly Referenced", `kind: "semantic"` for "Semantically Related".
+- The `url` field must point to the issue (`/issues/N`) or pull request (`/pull/N`) page on github.com.
+- For PRs, `state` may be `open`, `closed`, or `merged`. For issues, only `open` or `closed`.
+
+**Then call the tool:**
+
+After printing the text output, invoke `mcp__fatbrainmap__render_mindmap` with the graph object. The tool returns a clickable markdown link. Append it to your response on a new line:
+
+```
+🧠 [Open mindmap](http://localhost:8765/m/abc12345)
+```
+
+If the tool call fails for any reason, do not retry — just continue with the text output already printed.
