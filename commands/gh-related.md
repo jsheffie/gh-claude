@@ -1,3 +1,7 @@
+---
+description: "Find all issues and PRs related to a given issue or PR number"
+---
+
 Find all GitHub issues and pull requests related to issue or PR number $ARGUMENTS in this repository.
 
 Use the gh-related skill to run the full investigation and present grouped results.

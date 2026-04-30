@@ -1,3 +1,7 @@
+---
+description: "Find stale issues and PRs and generate a batch close/label action list"
+---
+
 Find stale issues and pull requests in this repository and generate a batch action list.
 
 Use the gh-stale-cleanup skill to identify inactive items and produce ready-to-run close/label commands.
