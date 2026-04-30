@@ -17,12 +17,24 @@ All skills require `gh` CLI installed and authenticated (`gh auth login`).
 
 ## Installation
 
-### Via Homebrew (after first release tag)
+### Via Homebrew
 
 ```bash
 brew tap jsheffie/gh-claude
 brew install gh-claude
 gh-claude-install        # registers the plugin with Claude Code
+```
+
+Then inside Claude Code:
+```
+/reload-plugins
+```
+
+### Updating
+
+```bash
+brew update && brew upgrade gh-claude
+gh-claude-install
 ```
 
 Then inside Claude Code:
