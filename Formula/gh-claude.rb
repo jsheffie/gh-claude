@@ -1,10 +1,8 @@
 class GhClaude < Formula
   desc "GitHub workflow toolkit as a Claude Code plugin"
   homepage "https://github.com/jsheffie/gh-claude"
-  # Update url and sha256 after tagging v1.0.0:
-  #   url "https://github.com/jsheffie/gh-claude/archive/refs/tags/v1.0.0.tar.gz"
-  #   sha256 "<run: shasum -a 256 on the downloaded tarball>"
-  url "https://github.com/jsheffie/gh-claude.git", tag: "v1.0.0"
+  url "https://github.com/jsheffie/gh-claude/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "41f48596bd5f585cfe35ebc50d8ef637cf6904373a36e56a2b828671041317df"
   license "MIT"
   version "1.0.0"
 
