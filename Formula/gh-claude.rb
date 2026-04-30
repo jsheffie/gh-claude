@@ -1,10 +1,10 @@
 class GhClaude < Formula
   desc "GitHub workflow toolkit as a Claude Code plugin"
   homepage "https://github.com/jsheffie/gh-claude"
-  url "https://github.com/jsheffie/gh-claude/archive/refs/tags/v1.0.2.tar.gz"
-  sha256 "21528091374b5aafdc2dd3a02ade1e3ff86aa385faa201ddf1707e683797f57c"
+  url "https://github.com/jsheffie/gh-claude/archive/refs/tags/v1.0.3.tar.gz"
+  sha256 "ff532d90fca4f2e0243db9b8ec2b22f51db945c9f24270403f755c402364f3ed"
   license "MIT"
-  version "1.0.2"
+  version "1.0.3"
 
   depends_on "gh"
 
